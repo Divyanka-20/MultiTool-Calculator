@@ -103,21 +103,21 @@
                         <button class="btn btn-number" onclick="appendNumber('scientific', '8')">8</button>
                         <button class="btn btn-number" onclick="appendNumber('scientific', '9')">9</button>
                         <button class="btn btn-operator" onclick="appendOperator('scientific', '/')">÷</button>
-                        <button className="btn btn-function" onClick={() => appendToInput('(')}>(</button>
-                        <button className="btn btn-function" onClick={() => appendToInput(')')}>)</button>
+                        <button className="btn btn-function" onClick="appendToInput('(')">(</button>
+                        <button className="btn btn-function" onClick="appendToInput(')')">)</button>
 
                         <button class="btn btn-number" onclick="appendNumber('scientific', '4')">4</button>
                         <button class="btn btn-number" onclick="appendNumber('scientific', '5')">5</button>
                         <button class="btn btn-number" onclick="appendNumber('scientific', '6')">6</button>
                         <button class="btn btn-operator" onclick="appendOperator('scientific', '*')">×</button>
                         <button class="btn btn-function" onclick="scientificFunction('factorial')">x!</button>
-                        <button className="btn btn-function" onClick={() => scientificFunction('reciprocal')}>1/x</button>
+                        <button className="btn btn-function" onClick="scientificFunction('reciprocal')">1/x</button>
 
                         <button class="btn btn-number" onclick="appendNumber('scientific', '1')">1</button>
                         <button class="btn btn-number" onclick="appendNumber('scientific', '2')">2</button>
                         <button class="btn btn-number" onclick="appendNumber('scientific', '3')">3</button>
                         <button class="btn btn-operator" onclick="appendOperator('scientific', '-')">-</button>
-                        <button className="btn btn-function" onClick={() => scientificFunction('abs')}>|x|</button>
+                        <button className="btn btn-function" onClick="scientificFunction('abs')">|x|</button>
                         <button class="btn btn-operator" onclick="calculatePercentage()">%</button>
 
                         <button class="btn btn-number span-2" onclick="appendNumber('scientific', '0')">0</button>
