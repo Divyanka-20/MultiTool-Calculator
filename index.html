@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Function Calculator</title>
+    <meta name="description" content="Comprehensive calculator with basic, scientific, BMI, unit conversion, currency conversion, and GST calculation features plus transaction history">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">
+                <i class="fas fa-calculator"></i>
+                Multi-Function Calculator
+            </h1>
+        </header>
+
+        <div class="calculator-wrapper">
+            <!-- Tab Navigation -->
+            <nav class="tab-nav">
+                <button class="tab-btn active" data-tab="basic">
+                    <i class="fas fa-calculator"></i>
+                    Basic
+                </button>
+                <button class="tab-btn" data-tab="scientific">
+                    <i class="fas fa-square-root-alt"></i>
+                    Scientific
+                </button>
+                <button class="tab-btn" data-tab="bmi">
+                    <i class="fas fa-weight"></i>
+                    BMI
+                </button>
+                <button class="tab-btn" data-tab="unit">
+                    <i class="fas fa-exchange-alt"></i>
+                    Unit
+                </button>
+                <button class="tab-btn" data-tab="currency">
+                    <i class="fas fa-dollar-sign"></i>
+                    Currency
+                </button>
+                <button class="tab-btn" data-tab="gst">
+                    <i class="fas fa-percentage"></i>
+                    GST
+                </button>
+            </nav>
+
+            <div class="calculator-content">
+                <!-- Basic Calculator -->
+                <div class="calculator-panel active" id="basic">
+                    <div class="display-section">
+                        <input type="text" id="basic-display" class="display" readonly value="0">
+                    </div>
+                    <div class="button-grid basic-grid">
+                        <button class="btn btn-secondary" onclick="clearAll('basic')">C</button>
+                        <button class="btn btn-secondary" onclick="clearEntry('basic')">CE</button>
+                        <button class="btn btn-secondary" onclick="backspace('basic')">⌫</button>
+                        <button class="btn btn-operator" onclick="appendOperator('basic', '/')">÷</button>
+                        
+                        <button class="btn btn-number" onclick="appendNumber('basic', '7')">7</button>
+                        <button class="btn btn-number" onclick="appendNumber('basic', '8')">8</button>
+                        <button class="btn btn-number" onclick="appendNumber('basic', '9')">9</button>
+                        <button class="btn btn-operator" onclick="appendOperator('basic', '*')">×</button>
+                        
+                        <button class="btn btn-number" onclick="appendNumber('basic', '4')">4</button>
+                        <button class="btn btn-number" onclick="appendNumber('basic', '5')">5</button>
+                        <button class="btn btn-number" onclick="appendNumber('basic', '6')">6</button>
+                        <button class="btn btn-operator" onclick="appendOperator('basic', '-')">-</button>
+                        
+                        <button class="btn btn-number" onclick="appendNumber('basic', '1')">1</button>
+                        <button class="btn btn-number" onclick="appendNumber('basic', '2')">2</button>
+                        <button class="btn btn-number" onclick="appendNumber('basic', '3')">3</button>
+                        <button class="btn btn-operator" onclick="appendOperator('basic', '+')">+</button>
+                        
+                        <button class="btn btn-number span-2" onclick="appendNumber('basic', '0')">0</button>
+                        <button class="btn btn-number" onclick="appendNumber('basic', '.')">.</button>
+                        <button class="btn btn-equals" onclick="calculate('basic')">=</button>
+                    </div>
+                </div>
+
+                <!-- Scientific Calculator -->
+                <div class="calculator-panel" id="scientific">
+                    <div class="display-section">
+                        <input type="text" id="scientific-display" class="display" readonly value="0">
+                    </div>
+                    <div class="button-grid scientific-grid">
+                        <button class="btn btn-secondary" onclick="clearAll('scientific')">C</button>
+                        <button class="btn btn-secondary" onclick="clearEntry('scientific')">CE</button>
+                        <button class="btn btn-secondary" onclick="backspace('scientific')">⌫</button>
+                        <button class="btn btn-function" onclick="scientificFunction('sin')">sin</button>
+                        <button class="btn btn-function" onclick="scientificFunction('cos')">cos</button>
+                        
+                        <button class="btn btn-function" onclick="scientificFunction('tan')">tan</button>
+                        <button class="btn btn-function" onclick="scientificFunction('log')">log</button>
+                        <button class="btn btn-function" onclick="scientificFunction('ln')">ln</button>
+                        <button class="btn btn-function" onclick="scientificFunction('sqrt')">√</button>
+                        <button class="btn btn-function" onclick="scientificFunction('pi')">π</button>
+                        
+                        <button class="btn btn-function" onclick="scientificFunction('e')">e</button>
+                        <button class="btn btn-function" onclick="scientificFunction('factorial')">n!</button>
+                        <button class="btn btn-operator" onclick="appendOperator('scientific', '^')">x^y</button>
+                        <button class="btn btn-operator" onclick="appendOperator('scientific', '/')">/</button>
+                        <button class="btn btn-number" onclick="appendNumber('scientific', '7')">7</button>
+                        
+                        <button class="btn btn-number" onclick="appendNumber('scientific', '8')">8</button>
+                        <button class="btn btn-number" onclick="appendNumber('scientific', '9')">9</button>
+                        <button class="btn btn-operator" onclick="appendOperator('scientific', '*')">×</button>
+                        <button class="btn btn-number" onclick="appendNumber('scientific', '4')">4</button>
+                        <button class="btn btn-number" onclick="appendNumber('scientific', '5')">5</button>
+                        
+                        <button class="btn btn-number" onclick="appendNumber('scientific', '6')">6</button>
+                        <button class="btn btn-operator" onclick="appendOperator('scientific', '-')">-</button>
+                        <button class="btn btn-number" onclick="appendNumber('scientific', '1')">1</button>
+                        <button class="btn btn-number" onclick="appendNumber('scientific', '2')">2</button>
+                        <button class="btn btn-number" onclick="appendNumber('scientific', '3')">3</button>
+                        
+                        <button class="btn btn-operator" onclick="appendOperator('scientific', '+')">+</button>
+                        <button class="btn btn-number span-2" onclick="appendNumber('scientific', '0')">0</button>
+                        <button class="btn btn-number" onclick="appendNumber('scientific', '.')">.</button>
+                        <button class="btn btn-equals" onclick="calculate('scientific')">=</button>
+                    </div>
+                </div>
+
+                <!-- BMI Calculator -->
+                <div class="calculator-panel" id="bmi">
+                    <div class="form-section">
+                        <h3>BMI Calculator</h3>
+                        <div class="input-group">
+                            <label>Weight:</label>
+                            <input type="number" id="weight" placeholder="Enter weight">
+                            <select id="weight-unit">
+                                <option value="kg">kg</option>
+                                <option value="lbs">lbs</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>Height:</label>
+                            <input type="number" id="height" placeholder="Enter height">
+                            <select id="height-unit">
+                                <option value="cm">cm</option>
+                                <option value="ft">ft</option>
+                                <option value="in">in</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-primary" onclick="calculateBMI()">Calculate BMI</button>
+                        <div id="bmi-result" class="result-section"></div>
+                    </div>
+                </div>
+
+                <!-- Unit Converter -->
+                <div class="calculator-panel" id="unit">
+                    <div class="form-section">
+                        <h3>Unit Converter</h3>
+                        <div class="input-group">
+                            <label>Category:</label>
+                            <select id="unit-category" onchange="updateUnits()">
+                                <option value="length">Length</option>
+                                <option value="weight">Weight</option>
+                                <option value="temperature">Temperature</option>
+                                <option value="volume">Volume</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>From:</label>
+                            <input type="number" id="from-value" placeholder="Enter value" oninput="convertUnit()">
+                            <select id="from-unit"></select>
+                        </div>
+                        <div class="input-group">
+                            <label>To:</label>
+                            <input type="number" id="to-value" placeholder="Result" readonly>
+                            <select id="to-unit" onchange="convertUnit()"></select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Currency Converter -->
+                <div class="calculator-panel" id="currency">
+                    <div class="form-section">
+                        <h3>Currency Converter</h3>
+                        <div class="input-group">
+                            <label>From:</label>
+                            <input type="number" id="currency-amount" placeholder="Enter amount" oninput="convertCurrency()">
+                            <select id="from-currency">
+                                <option value="USD">USD</option>
+                                <option value="EUR">EUR</option>
+                                <option value="GBP">GBP</option>
+                                <option value="JPY">JPY</option>
+                                <option value="INR">INR</option>
+                                <option value="CAD">CAD</option>
+                                <option value="AUD">AUD</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>To:</label>
+                            <input type="number" id="converted-amount" placeholder="Converted amount" readonly>
+                            <select id="to-currency" onchange="convertCurrency()">
+                                <option value="USD">USD</option>
+                                <option value="EUR">EUR</option>
+                                <option value="GBP">GBP</option>
+                                <option value="JPY">JPY</option>
+                                <option value="INR">INR</option>
+                                <option value="CAD">CAD</option>
+                                <option value="AUD">AUD</option>
+                            </select>
+                        </div>
+                        <div id="exchange-rate" class="info-text"></div>
+                    </div>
+                </div>
+
+                <!-- GST Calculator -->
+                <div class="calculator-panel" id="gst">
+                    <div class="form-section">
+                        <h3>GST Calculator</h3>
+                        <div class="input-group">
+                            <label>Amount:</label>
+                            <input type="number" id="gst-amount" placeholder="Enter amount" oninput="calculateGST()">
+                        </div>
+                        <div class="input-group">
+                            <label>GST Rate:</label>
+                            <select id="gst-rate" onchange="calculateGST()">
+                                <option value="0">0%</option>
+                                <option value="5">5%</option>
+                                <option value="12">12%</option>
+                                <option value="18" selected>18%</option>
+                                <option value="28">28%</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>Calculation Type:</label>
+                            <select id="gst-type" onchange="calculateGST()">
+                                <option value="exclusive">Add GST (Exclusive)</option>
+                                <option value="inclusive">Remove GST (Inclusive)</option>
+                            </select>
+                        </div>
+                        <div id="gst-result" class="result-section"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- History Panel -->
+            <div class="history-panel">
+                <div class="history-header">
+                    <h3>
+                        <i class="fas fa-history"></i>
+                        History
+                    </h3>
+                    <button class="btn btn-small" onclick="clearHistory()">
+                        <i class="fas fa-trash"></i>
+                        Clear
+                    </button>
+                </div>
+                <div id="history-list" class="history-list">
+                    <div class="no-history">No calculations yet</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
